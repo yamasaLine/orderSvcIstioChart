@@ -1,0 +1,12 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: {{ .Release.Name }}-destination-rule
+spec:
+  #TODO fill proper host here.
+  host:
+  trafficPolicy:
+    loadBalancer:
+      simple: RANDOM
+  subsets:
+    #TODO fill proper host subsets here. They should be grouped by deploy labels.

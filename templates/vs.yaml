@@ -1,0 +1,34 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: {{ .Release.Name }}-virtual-service
+spec:
+  hosts:
+  - "*"
+    #- ordersvc-svc
+    #- restaurantsvc-kitchensvc
+    #- restaurantsvc-restaurant-svc
+  gateways:
+  - {{ .Release.Name }}-gateway
+  http:
+  - route:
+    - destination:
+        #TODO fill in proper order service host, port and subset here. Make the VS routes 25% traffic to
+        #this subset.
+    - destination:
+        #TODO fill in proper order service host, port and subset here. Make the VS routes 75% traffic to
+        #this subset.
+    match:
+      #TODO fill in proper matching rule here. Generally VS needs a way to route some uri patterns to
+      # proper K8S service!
+
+  - route:
+    - destination:
+        #TODO fill in proper kitchen service host and port here.
+    match:
+        #TODO fill in proper matching rule here.
+  - route:
+    - destination:
+        #TODO fill in proper restaurant service host and port here.
+    match:
+      #TODO fill in proper matching rule here.

@@ -1,0 +1,15 @@
+{{- if .Values.installKitchensvcResillience -}}
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: {{ .Release.Name }}-destination-rule-kitchensvc
+spec:
+  host: restaurantsvc-kitchensvc
+  subsets:
+  - name: v0
+  # TODO fill in proper label selector here
+  - name: v1
+  # TODO fill in proper label selector here
+  # TODO fill in `trafficPolicy` conf here
+
+{{- end -}}
