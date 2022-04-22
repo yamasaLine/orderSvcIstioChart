@@ -14,7 +14,7 @@ spec:
     # should be 20%
 
 
-    # TODO fill in route0 which points to kitchensvc subset v0 here, and its traffic weight
+    # TODO fill in route1 which points to kitchensvc subset v1 here, and its traffic weight
     # should be 80%
     name: "kitchensvc-v0"
     #match:
